@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="iconecentral.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Resumo Atendimento Central</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Perguntas do Script
+            <span class="central-nome">Central de Oportunidades</span>
+        </h1>
+        
+        <label class="perguntas pergunta-ia">Cole a conversa do Chat aqui:</label>
+        <textarea id="conversa-chat" rows="5" placeholder="Cole o histórico completo da conversa aqui para preencher automaticamente..."></textarea>
+        
+        <button class="botao o botao-ia" onclick="analisarConversaComIA()"> ✨ Analisar com Inteligência Artificial </button>
+        
+        <hr style="border: 0.5px solid #00ddff2c; margin: 20px 0;">
+
+        <label class="perguntas">Razão Social:</label>
+        <input type="text" id="razao-social">
+
+        <label class="perguntas">CNPJ:</label>
+        <input type="text" id="cnpj">
+
+        <label class="perguntas">Nome do Contato:</label>
+        <input type="text" id="nome">
+
+        <label class="perguntas">Cargo:</label>
+        <input type="text" id="cargo">
+
+        <label class="perguntas">Telefone:</label>
+        <input type="text" id="telefone">
+
+        <label class="perguntas">E-mail:</label>
+        <input type="email" id="email">
+
+        <label class="perguntas">Segmento da Empresa:</label>
+        <input type="text" id="segmento">
+
+        <label class="perguntas">Quantidade de Colaboradores:</label>
+        <input type="text" id="colaboradores">
+
+        <label class="perguntas">Estimativa de Faturamento Anual:</label>
+        <input type="text" id="faturamento"> 
+        
+        <label class="perguntas">Dores e necessidades atuais:</label> 
+        <textarea id="necessidade"></textarea>
+        
+        <label class="perguntas">Nome do sistema atual:</label>
+        <input type="text" id="sistemaAtual">
+        
+        <button class="botao" onclick="gerarResumo()"> Gerar Resumo </button>
+        <button class="botao" onclick="limparFormulario()"> Limpar Atendimento </button>
+        
+        <div class="resumo" id="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

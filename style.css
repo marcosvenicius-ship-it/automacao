@@ -1,0 +1,156 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E CORPO da PÁGINA
+   ========================================================================== */
+body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to right, #002233, #00ddff2c, #000000, #5E48C8);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container Principal do Formulário */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #002233;
+    padding: 25px;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 1px 2px #00ddff2c;
+}
+
+/* Título Principal */
+h1 {
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    color: #004459;
+    font-size: 30px;
+    background-color: #D9FF65;
+    border-radius: 8px;
+}
+
+.central-nome {
+    color: #a34dff;
+}
+
+/* Separador Visual (Linha horizontal) */
+hr {
+    border: 0.5px solid #00ddff2c;
+    margin: 25px 0;
+}
+
+/* ==========================================================================
+   RÓTULOS (LABELS) E CAMPOS DE ENTRADA (INPUTS)
+   ========================================================================== */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Estilo padrão das tags de perguntas */
+.perguntas {
+    background-color: #A44DFF;
+    border-radius: 5px;
+    text-align: center;
+    width: 50%;
+    padding: 3px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+/* Destaque exclusivo para a pergunta do campo de IA */
+.pergunta-ia {
+    background-color: #A44DFF;
+    color: white;
+    width: 60%;
+    /* Um pouco mais larga para destacar */
+}
+
+/* Inputs, Selects e Textareas padrão */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-radius;
+    /* Garante que o padding não quebre a largura */
+}
+
+/* Estilização específica das caixas de texto longas */
+textarea {
+    resize: vertical;
+    /* Permite o usuário esticar apenas para baixo */
+}
+
+/* Botões, transições, alterações */
+
+.botao {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: #D9FF65;
+    color: #04425A;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+    /* Transição suave */
+}
+
+.botao-ia {
+    background-color: #D9FF65;
+    color: #04425A;
+    margin-bottom: 20px;
+}
+
+/* Efeitos de passar o mouse (Hover) */
+.botao:hover {
+    background-color: #04425A;
+    color: white;
+}
+
+.botao-ia:hover {
+    background-color: #04425A;
+    color: white;
+}
+
+/* Efeito de clique (Active) */
+.botao:active {
+    background-color: #a34dff;
+}
+
+/* Estado de botão desativado (enquanto a IA processa) */
+.botao:disabled {
+    background-color: #555 !important;
+    color: #aaa !important;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   RESULTADO E RESUMO FINAL
+   ========================================================================== */
+.resumo {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #eef2f7;
+    border-radius: 6px;
+    white-space: pre-line;
+    color: black;
+    text-transform: uppercase;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+}
