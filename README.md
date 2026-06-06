@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/type=waving&color=7B2CBF&height=180&section=header&text=Automação%20de%20CRM%20&%20Qualificação%20de%20Leads%20com%20IA&fontSize=35&fontColor=ffffff&animation=twinkling" />
-</p>
-
 ## Sobre o Projeto
 
 Este é um projeto **Full-Stack real** desenvolvido para solucionar uma das maiores dores das equipes de pré-vendas (SDR/BDR) e times de marketing: a digitação manual de dados no CRM. 
