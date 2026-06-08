@@ -7,7 +7,7 @@ async function analisarConversaComIA() {
         return;
     }
 
-    botaoIA.innerText = "Analisando dados... Aguarde.";
+    botaoIA.innerText = "Analisando... Aguarde.";
     botaoIA.disabled = true;
 
     try {
@@ -47,7 +47,7 @@ async function analisarConversaComIA() {
         console.error(erro);
         alert("Houve um problema ao processar as informações da IA, mas o servidor está online!");
     } finally {
-        botaoIA.innerText = "Analisar com IA";
+        botaoIA.innerText = "Analisar conversa";
         botaoIA.disabled = false;
     }
 }
