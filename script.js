@@ -1,18 +1,16 @@
 async function analisarConversaComIA() {
     const conversaTexto = document.getElementById("conversa-chat").value;
-    const botaoIA = document.querySelector("button.botao-ia"); // Corrigido o seletor do botão
+    const botaoIA = document.querySelector("button.botao-ia"); 
 
     if (!conversaTexto.trim()) {
         alert("Por favor, cole alguma conversa antes de analisar.");
         return;
     }
 
-    // Feedback visual de carregamento na tela
-    botaoIA.innerText = "🤖 Analisando dados... Aguarde.";
+    botaoIA.innerText = "Analisando dados... Aguarde.";
     botaoIA.disabled = true;
 
     try {
-        // Envia os dados para o Backend em Java
         const response = await fetch("https://automacao-crm-backend.onrender.com/api/analisar-chat", {
             method: "POST",
             headers: {
@@ -25,13 +23,10 @@ async function analisarConversaComIA() {
             throw new Error("Erro na comunicação com o servidor Java.");
         }
 
-        // Como o Java devolve o texto purificado, pegamos como text primeiro
         const textoResposta = await response.text();
 
-        // Convertemos o texto para um objeto JavaScript real
         const dadosPreenchidos = JSON.parse(textoResposta);
 
-        // Insere as respostas da IA diretamente nos elementos HTML da tela
         document.getElementById("razao-social").value = dadosPreenchidos.razaoSocial || "";
         document.getElementById("cnpj").value = dadosPreenchidos.cnpj || "";
         document.getElementById("nome").value = dadosPreenchidos.nome || "";
@@ -44,7 +39,6 @@ async function analisarConversaComIA() {
         document.getElementById("necessidade").value = dadosPreenchidos.necessidade || "";
         document.getElementById("sistemaAtual").value = dadosPreenchidos.sistemaAtual || "";
 
-        // Tenta atualizar a caixa final se a função existir
         if (typeof gerarResumo === "function") {
             gerarResumo();
         }
@@ -53,15 +47,13 @@ async function analisarConversaComIA() {
         console.error(erro);
         alert("Houve um problema ao processar as informações da IA, mas o servidor está online!");
     } finally {
-        // Restaura o botão ao estado original independente de dar certo ou errado
-        botaoIA.innerText = "✨ Analisar com Inteligência Artificial";
+        botaoIA.innerText = "Analisar com IA";
         botaoIA.disabled = false;
     }
 }
 
 
 function gerarResumo() {
-    // Pega os valores atualizados dos campos
     const razaoSocial = document.getElementById("razao-social").value;
     const cnpj = document.getElementById("cnpj").value;
     const nome = document.getElementById("nome").value;
@@ -84,12 +76,10 @@ SÃO ${colaboradores} COLABORADORES E A ESTIMATIVA DE FATURAMENTO ANUAL FICA EM 
 NOS ACIONOU COM INTERESSE EM UM SISTEMA PARA ${necessidade}. 
 ATUALMENTE UTILIZAM O SISTEMA ${sistemaAtual}.`;
 
-    // Exibe na caixa cinza final aplicando o UPPERCASE em tudo
     document.getElementById("resultado").innerText = resumo.trim().toUpperCase();
 }
 
 function limparFormulario() {
-    // Limpa todos os inputs e caixas de texto
     document.getElementById("conversa-chat").value = "";
     document.getElementById("razao-social").value = "";
     document.getElementById("cnpj").value = "";
