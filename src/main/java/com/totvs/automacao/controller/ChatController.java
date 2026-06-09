@@ -84,7 +84,6 @@ public class ChatController {
             Map firstPart = (Map) parts.get(0);
             String textoJsonDaIA = (String) firstPart.get("text");
 
-// Limpeza cirúrgica caso a IA envie markdown por teimosia
             if (textoJsonDaIA.contains("```")) {
                 textoJsonDaIA = textoJsonDaIA.replaceAll("```json", "")
                                  .replaceAll("```", "")
