@@ -84,17 +84,22 @@ public class ChatController {
             Map firstPart = (Map) parts.get(0);
             String textoJsonDaIA = (String) firstPart.get("text");
 
-            return ResponseEntity.ok(textoJsonDaIA.trim());
+// Limpeza cirúrgica caso a IA envie markdown por teimosia
+            if (textoJsonDaIA.contains("```")) {
+                textoJsonDaIA = textoJsonDaIA.replaceAll("```json", "")
+                                 .replaceAll("```", "")
+                                 .trim();
+            }
+
+return ResponseEntity.ok(textoJsonDaIA.trim());
 
         } catch (HttpClientErrorException | HttpServerErrorException e) {
-            // Se o Google devolver erro (400, 403, 429), esse bloco captura e mostra o motivo real
             System.err.println("❌ ERRO DA API DO GOOGLE GEMINI:");
             System.err.println("Status Code: " + e.getStatusCode());
             System.err.println("Corpo do Erro: " + e.getResponseBodyAsString());
             return ResponseEntity.status(e.getStatusCode()).body(e.getResponseBodyAsString());
 
         } catch (Exception e) {
-            // Captura erros de código (ex: mapeamento do JSON quebrado)
             System.err.println("❌ ERRO INTERNO NO CODIGO JAVA:");
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
