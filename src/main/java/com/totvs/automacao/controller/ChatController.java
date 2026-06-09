@@ -15,8 +15,19 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ChatController {
 
-    @Value("${gemini.api.key}")
-    private String apiKey;
+    @Value("${gemini.api.keys}")
+    private String[] apiKeys;
+
+    private int keyIndex = 0;
+
+    private synchronized String getNextApiKey() {
+        if (apiKeys == null || apiKeys.length == 0) {
+            throw new IllegalStateException("Nenhuma chave configurada.");
+        }
+        String key = apiKeys[keyIndex].trim();
+        keyIndex = (keyIndex + 1) % apiKeys.length;
+        return key;
+    }
 
     private final RestTemplate restTemplate = new RestTemplate();
 
@@ -28,8 +39,7 @@ public class ChatController {
             return ResponseEntity.badRequest().body("Conversa não enviada.");
         }
 
-        // Modelo da nova geração totalmente compatível com chaves de 2026
-        String url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" + apiKey;
+        String url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" + getNextApiKey();
 
         String systemPrompt = "Você é um assistente de CRM de pré-vendas. Analise o histórico de chat fornecido e extraia as informações estritamente no formato JSON abaixo. "
                 + "Não adicione nenhuma introdução, explicação ou bloco de código em markdown (como ```json). Devolva APENAS o objeto JSON limpo.\n\n"
