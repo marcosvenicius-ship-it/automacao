@@ -13,14 +13,13 @@
     <div class="container">
         <h1>Perguntas do Script
             <span class="central-nome">Central de Oportunidades</span>
+            <span class="sub-gdm">INBOUND - GDM</span>
         </h1>
         
         <label class="perguntas pergunta-ia">Cole a conversa do Chat aqui:</label>
         <textarea id="conversa-chat" rows="5" placeholder="Cole o histórico completo da conversa aqui para preencher automaticamente..."></textarea>
         
-        <button class="botao o botao-ia" onclick="analisarConversaComIA()"> Analisar a conversa com IA </button>
-        
-        <hr style="border: 0.5px solid #00ddff2c; margin: 20px 0;">
+        <button class="botao botao-ia" onclick="analisarConversaComIA()"> Analisar a conversa</button>
 
         <label class="perguntas">Razão Social:</label>
         <input type="text" id="razao-social">
@@ -60,6 +59,10 @@
         
         <div class="resumo" id="resultado"></div>
     </div>
+
+    <footer>
+        &copy;Marcos Venicius
+    </footer>
 
     <script src="script.js"></script>
 </body>
