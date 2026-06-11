@@ -150,10 +150,17 @@ textarea {
     background-color: #002233;
     color: #00ddff;
     border: 1px solid #00ddff;
-    margin: 15px auto 25px auto;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 16px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
     display: block;
-    width: fit-content;
-    padding: 12px 30px;
+    box-sizing: border-box;
     transition: background-color 0.2s, color 0.2s;
 }
 
@@ -252,9 +259,8 @@ footer {
     }
 
     .botao-ia {
-        width: 100%;
-        box-sizing: border-box;
+        margin: 15px 0 25px 0;
         padding: 14px;
-        margin: 15px 0;
+        font-size: 14px;
     }
 }
